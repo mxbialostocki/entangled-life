@@ -10,11 +10,11 @@ import {
   IconButton,
   Typography
 } from "@material-ui/core"
-// import DeleteIcon from "@material-ui/icons/Delete"
-// import RemoveIcon from "@material-ui/icons/Remove"
+import DeleteIcon from "@material-ui/icons/Delete"
+import RemoveIcon from "@material-ui/icons/Remove"
 import AddIcon from "@material-ui/icons/Add"
 
-import { store, add } from "./store"
+import { store, add, remove, deleteProduct } from "./store"
 import { Product } from "../global"
 
 const ShoppingCart = () => {
@@ -56,6 +56,18 @@ const ShoppingCart = () => {
                     onClick={() => store.dispatch(add({ id: product.id }))}
                   >
                     <AddIcon />
+                  </IconButton>
+                  <IconButton
+                    aria-label="remove"
+                    onClick={() => store.dispatch(remove({ id: product.id }))}
+                  >
+                    <RemoveIcon />
+                  </IconButton>
+                  <IconButton
+                    aria-label="delete"
+                    onClick={() => store.dispatch(deleteProduct({ id: product.id }))}
+                  >
+                    <DeleteIcon />
                   </IconButton>
                 </ListItemSecondaryAction>
               </ListItem>

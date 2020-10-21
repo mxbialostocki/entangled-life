@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Box } from "@material-ui/core"
+import { Container, Box, Typography } from "@material-ui/core"
 
 import { ProductList } from "./ProductList"
 import { ShoppingCart } from "./ShoppingCart"
@@ -9,6 +9,11 @@ const App = () => {
     <div>
       <header>
         <Container>
+          <Box mt={5} mb={5}>
+            <Typography variant="h1">
+              Buy Excellent Hardware Here!
+            </Typography>
+          </Box>
           <Box mt={5} mb={5}>
             <ProductList />
           </Box>
