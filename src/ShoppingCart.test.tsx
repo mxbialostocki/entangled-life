@@ -25,8 +25,16 @@ test('Total should be initialised at Zero', () => {
 })
 
 // This is the direction I'd want to go in when I had some deeper testing environments set up, with the equivalent of components having mounted etc...
+
 // test('renders add button element', () => {
 //   const { getByLabelText } = render(renderComponent());
 //   const addButton = getByLabelText(/add/i);
 //   expect(addButton).toBeInTheDocument();
 // });
+
+// test('renders remove button element', () => {
+//   const { getByLabelText } = render(renderComponent());
+//   const removeButton = getByLabelText(/remove/i);
+//   expect(removeButton).toBeInTheDocument();
+// });
+

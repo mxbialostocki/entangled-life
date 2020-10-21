@@ -24,12 +24,15 @@ const ProductList = () => {
 
   return (
     <React.Fragment>
+      <Typography component="h1" variant="h2">
+        Buy Excellent Hardware Here!
+      </Typography>
       <Grid container spacing={2} direction="column" >
           {products.map((product: Product) => (
-            <Grid item xs={3}>
+            <Grid item xs={3} key={product.id}>
               <ButtonBase
               focusRipple
-              key={product.id}
+              data-testid={product.id}
               className={styles.productButton}
               onClick={() => store.dispatch(add(product))}
               >

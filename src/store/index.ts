@@ -14,6 +14,7 @@ const basketSlice = createSlice({
         }
         return {
           ...item,
+          // update added to true, and increase quantity by one
           added: true,
           quantity: item.quantity + 1
         }
@@ -24,12 +25,14 @@ const basketSlice = createSlice({
         if (item.id !== action.payload.id) {
           return item
         }
+        // if item has > 1, decrease item by one
         if (item.quantity > 1) {
           return {
             ...item,
             quantity: item.quantity - 1
           }
         }
+        // but if item is sitting at 1, change added to false and zero quantity
         return {
           ...item,
           added: false,
@@ -42,6 +45,7 @@ const basketSlice = createSlice({
         if (item.id !== action.payload.id) {
           return item
         }
+        // added to false and zeroing quanitity will remove the item from the Cart state.
         return {
           ...item,
           added: false,

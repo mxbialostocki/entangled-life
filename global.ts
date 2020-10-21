@@ -2,7 +2,6 @@ export interface Product {
   id: string
   name: string
   price: number
-  // imageUrl: string
   added?: boolean
   quantity: number
 }
