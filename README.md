@@ -1,41 +1,34 @@
 ## Entangled Life
-A Technical test in React, Redux-Toolkit, Typescript, and Material-UI
+A Technical test in React, Redux-Toolkit, Typescript, and Material-UI - please see notes for details.
 
 ### `yarn start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## NOTES
+I had completed a similar exercise in a course previously, so I wanted to experiment a little, which always leads down some unforseen paths (full of learning opportunities). So I used Reduxjs/toolkit, which incorporates thunk middleware into it's structure inherently.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Beginning
+I prefer not to use create-react-app because I like to set up my own servers and app structure, however for the purposes of a two hour exercise that focuses on Front-End only, I hoped that this would be appropriate. I felt that their typescript template would allow me to work more easily out-the-gate with redux-toolkit, since that is written in Typescript as well.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Testing
+It took me a wee bit to get the redux store wrapping the components I was testing properly. I tried to limit myself to be time-sensitive, and got a few unit tests going - but I've also left a couple commented out in ShoppingCart.test.js to give you an indication of where I wanted to go next.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### State Management on reload
+I did not complete this requirement, but I hope that you will take a look at the secondary branch "persistence". I was trying to use redux-persist to persist and then "rehydrate" the store, but that was a first for me and I was unable to get it fully working. I believe I could have got this up and running with more time, or a gentle nudge from someone with senior experience. It's one of those areas which I feel like I can see everything that needs to happen, but am missing a piece of terminology, or a detail that I haven't encountered before.
 
-### `yarn eject`
+I managed to get the PersistGate set up, and I managed to get the "products" serving to the browser - but the main problem (possibly the final problem?) I encountered was that the Persist module seemed to mutate the products array into an object, and I ran out of time to experiment further with splitting Object.keys, entries etc. I would hope to find a solution that forced the type of the products to retain their original structure.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Material-UI
+An ideal situation would be to approach this from a design perspective, if I wasn't working from a redline document. The Material-UI here is minimal, but I hope indicates that I am familiar with the usage.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Summation
+I haven't actively used redux in over a year so I hope that what I managed to get through in this timeframe is acceptable. I'm definitley keen on toolkit though - it's a smoother configuration process.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+If I have misunderstood the test, I would be happy to submit a follow up focussing on an area required - for example if you wanted an older classic redux structure. There is a lot more I would have loved to experiment with if I had more time, and I'd be grateful to talk with you further about this.
