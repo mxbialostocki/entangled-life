@@ -78,7 +78,7 @@ const ShoppingCart = () => {
             </React.Fragment>
           ))}
         <ListItem>
-          <Typography variant="subtitle1">
+          <Typography variant="subtitle1" aria-label="cartTotal">
             Total: $
             {(
               products
