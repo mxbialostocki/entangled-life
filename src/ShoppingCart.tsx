@@ -1,6 +1,6 @@
 import React from "react"
 import { useSelector } from "react-redux"
-
+import { Theme, makeStyles, createStyles } from "@material-ui/core/styles"
 import {
   List,
   ListItem,
@@ -17,12 +17,21 @@ import AddIcon from "@material-ui/icons/Add"
 import { store, add, remove, deleteProduct } from "./store"
 import { Product } from "../global"
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    primary: {
+      color: "#f50057"
+    }
+  })
+) 
+
 const ShoppingCart = () => {
+  const styles = useStyles()
   const products = useSelector((state: Product[]) => state)
 
   return (
     <>
-      <Typography component="h2" variant="h6" color="primary" gutterBottom>
+      <Typography component="h2" variant="h2" className={styles.primary} gutterBottom>
         Shopping Cart
       </Typography>
       <Typography component="p" variant="body1">
@@ -36,17 +45,11 @@ const ShoppingCart = () => {
               <ListItem alignItems="flex-start">
                 
                 <ListItemText
-                  primary={product.name}
+                  primary={`${product.name} || $${(product.price).toFixed(2)}`}
                   secondary={
                     <React.Fragment>
-                      <Typography
-                        component="span"
-                        variant="body2"
-                        color="textPrimary"
-                      >
-                        ${(product.price / 100).toFixed(2)}
-                      </Typography>
-                      {` — ${product.quantity} || — subTotal: ${(product.quantity * product.price / 100).toFixed(2)}`}
+                      
+                      {` You have x${product.quantity} in your cart || — subTotal: $${(product.quantity * product.price).toFixed(2)}`}
                     </React.Fragment>
                   }
                 />
@@ -76,12 +79,11 @@ const ShoppingCart = () => {
           ))}
         <ListItem>
           <Typography variant="subtitle1">
-            $
+            Total: $
             {(
               products
                 .filter(product => product.added)
-                .reduce((acc, current) => (acc += current.price * current.quantity), 0) / 100
-            ).toFixed(2)}
+                .reduce((acc, current) => (acc += current.price * current.quantity), 0)).toFixed(2)}
           </Typography>
         </ListItem>
       </List>
