@@ -1,20 +1,21 @@
-import React from 'react';
+import React from 'react'
+import { Container, Box } from "@material-ui/core"
 
-function App() {
+import { ProductList } from "./ProductList"
+import { ShoppingCart } from "./ShoppingCart"
+
+const App = () => {
   return (
     <div>
       <header>
-        <p>
-        Hello, World
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Container>
+          <Box mt={5} mb={5}>
+            <ProductList />
+          </Box>
+          <Box mt={5} mb={5}>
+            <ShoppingCart />
+          </Box>
+        </Container>
       </header>
     </div>
   );
